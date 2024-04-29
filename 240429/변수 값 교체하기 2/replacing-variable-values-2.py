@@ -1,4 +1,5 @@
 a = 5
 b = 3
 b = a
-print(a\n,b)
+print("""a
+b""")
