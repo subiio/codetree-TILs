@@ -1,2 +1,2 @@
-d,x,y = map(int,input("-"))
-print(f"{d}-{y}-{x}")
+d,x,y = map(str,input().split("-"))
+print("%s-%s-%s" %(d,y,x))
