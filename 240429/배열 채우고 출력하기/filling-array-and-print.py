@@ -8,5 +8,5 @@
 a = list(map(int,input().split()))
 
 i=len(a)
-for i in range(len(a)-1,-1,-1):
-    print(a[i],end='')
+for j in range(len(a)-1,-1,-1):
+    print(a[j],end='')
