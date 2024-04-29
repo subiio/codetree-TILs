@@ -7,4 +7,4 @@ for i in range(len(numbers)):
         count += 1
     else:
         break
-print("%d %.1f" %(sum,count))
+print("%d %.1f" %(sum,sum/count))
