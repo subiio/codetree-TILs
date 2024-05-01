@@ -9,9 +9,10 @@ for i in list1:
             count += 1
     if count == 1:
         list2.append(i)
-if list2[0] == IndexError:
-    print(-1) 
-print(max(list2))
+if len(list2) == 0:
+    print(-1)
+else:
+    print(max(list2))
 
 
 
