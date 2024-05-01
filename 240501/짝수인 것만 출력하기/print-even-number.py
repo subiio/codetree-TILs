@@ -10,4 +10,4 @@ for i in list1:
         pass
 
 for j in list2:
-    print(j)
+    print(j, end = ' ')
