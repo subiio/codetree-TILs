@@ -19,4 +19,4 @@ if not count == 1:
         count2 += 1
         if max_list2 == i:
             break
-    print(count2)
+    print(count2, end = ' ')
