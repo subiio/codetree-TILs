@@ -11,11 +11,12 @@ for i in list1:
     list2.append(i)
     if max_list == i:
         break
-
-max_list2 = max(list2)
-count2 = 0
-for j in list2:
-    count2 += 1
-    if max_list2 == i:
-        break
-print(count,count2)
+print(count, end= ' ')
+if not count == 1:
+    max_list2 = max(list2)
+    count2 = 0
+    for j in list2:
+        count2 += 1
+        if max_list2 == i:
+            break
+    print(count2)
