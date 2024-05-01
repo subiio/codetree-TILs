@@ -3,7 +3,7 @@ N = int(N)
 
 list1 = list(map(int,input().split()))
 
-tmp = 100
+tmp = 2**31 -1
 
 for i in list1:
     if i < tmp:
