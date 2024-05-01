@@ -1,10 +1,10 @@
 n,m = map(int,input().split())
 list1 = []
 list2 = []
-for _ in range(m):
+for _ in range(n):
     a = list(map(int,input().split()))
     list1.append(a)
-for _ in range(m):
+for _ in range(n):
     a = list(map(int,input().split()))
     list2.append(a)
 
