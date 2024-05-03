@@ -9,4 +9,6 @@ while True:
     
     N //= B
 
-print(*list1[::-1],sep = '')
+
+for list2 in liist1[::-1]:
+    print(list2, end ='')
