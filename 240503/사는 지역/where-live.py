@@ -16,9 +16,9 @@ for _ in range(n):
     list1.append(People(name,bungi,area))
 
 for i in range(n):
-    if list1[min_inx].name > list1[i].name:
+    if list1[min_inx].name < list1[i].name:
         min_inx = i
 
 print(f"name {list1[min_inx].name}")
-print(f"addr {list1[min_inx].address}")
-print(f"city {list1[min_inx].region}")
+print(f"addr {list1[min_inx].bungi}")
+print(f"city {list1[min_inx].area}")
