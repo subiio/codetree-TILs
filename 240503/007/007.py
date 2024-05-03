@@ -3,8 +3,8 @@ class Secret:
         self.code = code
         self.where = where
         self.time = time
-
-secret_code = Secret('codetree','L',13)
+a,b,c = map(str,input().split())
+secret_code = Secret(a,b,c)
 
 print("secret code :", secret_code.code)
 print("meeting point :", secret_code.where)
