@@ -5,4 +5,4 @@ list1 = []
 for _ in range(n):
     list1.append(input().split())
 
-print(sorted(list1)[k])
+print(sorted(list1)[k][0])
