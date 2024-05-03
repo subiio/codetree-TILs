@@ -10,5 +10,5 @@ while True:
     N //= B
 
 
-for list2 in liist1[::-1]:
+for list2 in list1[::-1]:
     print(list2, end ='')
