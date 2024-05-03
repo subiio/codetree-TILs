@@ -4,6 +4,9 @@ start_b = 11
 start_c = 11
 time_total = 0
 while True:
+    if (start_a,start_b,start_c) > (a,b,c):
+        print(-1)
+        break 
     if start_a == a and start_b == b and start_c == c:
         break
     time_total += 1
