@@ -1,6 +1,6 @@
 N,K = map(int,input().split())
 
-list2 = [0]*N 
+list2 = [0]*N*100
 list1 = []
 for _ in range(K):
     list1.append(list(map(int,input().split())))
