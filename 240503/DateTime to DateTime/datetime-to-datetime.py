@@ -5,7 +5,7 @@ start_c = 11
 time_total = 0
 while True:
     if (start_a,start_b,start_c) > (a,b,c):
-        print(-1)
+        time_total = -1
         break 
     if start_a == a and start_b == b and start_c == c:
         break
@@ -17,5 +17,4 @@ while True:
     if start_b == 24:
         start_b = 0
         start_a += 1
-
 print(time_total)
