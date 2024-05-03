@@ -1,7 +1,7 @@
 N,B = map(int,input().split())
 list1 = []
 while True:
-    if N < 4:
+    if N < B:
         list1.append(N)
         break
     
