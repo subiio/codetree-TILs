@@ -1,7 +1,11 @@
-n = (input())
-n = list(n)
+# 변수 선언 및 입력
+binary = list(map(int, list(input())))
+length = len(binary)
+
+# 십진수로 변환합니다.
 num = 0
-for i in range(len(n)-1,-1,-1):
-    num += int(n[i])*2**abs(i-4)
-   
+for i in range(length):
+    num = num * 2 + binary[i]
+
+# 출력
 print(num)
