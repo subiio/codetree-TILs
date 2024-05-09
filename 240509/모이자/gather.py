@@ -1,7 +1,7 @@
 n = int(input())
 
 a = list(map(int,input().split()))
-answer = 100000
+answer = 100000000
 for i in range(n):
     S = 0
     for j in range(n):
