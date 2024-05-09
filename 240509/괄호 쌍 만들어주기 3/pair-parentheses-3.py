@@ -6,3 +6,5 @@ for i in range(len(brackets)):
     for j in range(i+1,len(brackets)):
         if brackets[j] == ')':
             S += 1
+
+print(S)
