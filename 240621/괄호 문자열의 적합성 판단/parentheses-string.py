@@ -1,17 +1,19 @@
 stack_list = []
 
 huhuh = input()
-
+answer = None
 for _ , value in enumerate(huhuh):
     if value == '(':
         stack_list.append(value)
     else:
         if len(stack_list) == 0 :
-            print("No")
+            answer = "No"
+            print(answer)
             break
         stack_list.pop()
 
-if len(stack_list) == 0:
-    print("Yes")
-else:
-    print("No")
+if answer == None:
+    if len(stack_list) == 0:
+        print("Yes")
+    else:
+        print("No")
