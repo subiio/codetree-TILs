@@ -38,7 +38,10 @@ for i in suyeol:
     hi = count_numbers(i)
     if hi == True:
         count += 1
-print(count)
+if len(suyeol) == 1:
+    print(1)
+else:
+    print(count)
 
 
 
