@@ -12,8 +12,8 @@ def count_numbers(a):
     for j in range(len(list2)):
         if list2[j] >= m:
             list3.append(j+1)
-    count1 = 0
     for k in list3:
+        count1 = 0
         for l in a:
             if l != k:
                 count1 = 0
