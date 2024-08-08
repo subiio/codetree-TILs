@@ -39,7 +39,7 @@ for i in suyeol:
     if hi == True:
         count += 1
 if len(suyeol) == 1:
-    print(1)
+    print(2)
 else:
     print(count)
 
