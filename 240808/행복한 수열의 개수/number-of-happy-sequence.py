@@ -19,8 +19,8 @@ def count_numbers(a):
                 count1 = 0
             else:
                 count1 += 1
-    if count1 >= m:
-        return True
+            if count1 >= m:
+                return True
 
 
     return False
