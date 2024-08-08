@@ -12,14 +12,14 @@ def count_numbers(a):
     for j in range(len(list)):
         if list[j] >= m:
             list2.append(j+1)
-    count = 0
+    count1 = 0
     for i in list2:
         for j in a:
             if j != i:
-                count = 0
+                count1 = 0
             else:
-                count += 1
-    if count >= m:
+                count1 += 1
+    if count1 >= m:
         return True
 
 
