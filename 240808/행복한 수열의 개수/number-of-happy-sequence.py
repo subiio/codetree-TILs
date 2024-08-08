@@ -13,9 +13,9 @@ def count_numbers(a):
         if list[j] >= m:
             list2.append(j+1)
     count1 = 0
-    for i in list2:
-        for j in a:
-            if j != i:
+    for k in list2:
+        for l in a:
+            if l != k:
                 count1 = 0
             else:
                 count1 += 1
