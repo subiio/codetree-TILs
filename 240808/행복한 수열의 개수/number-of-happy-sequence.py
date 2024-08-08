@@ -6,7 +6,7 @@ for _ in range(n):
 
 def count_numbers(a):
     list = []
-    for i in range(1,10):
+    for i in range(1,101):
         list.append(a.count(i))
     list2 = []
     for j in range(len(list)):
