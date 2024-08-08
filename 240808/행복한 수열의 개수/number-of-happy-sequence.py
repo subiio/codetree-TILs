@@ -19,7 +19,7 @@ def count_numbers(a):
                 count = 0
             else:
                 count += 1
-    if count >= 2:
+    if count >= m:
         return True
 
 
