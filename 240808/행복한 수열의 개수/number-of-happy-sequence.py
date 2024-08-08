@@ -30,7 +30,7 @@ for i in range(n):
     for j in range(n):
         list.append(suyeol[j][i])
 
-        if j == 2:
+        if j == n-1:
             suyeol.append(list)
 
 count = 0
