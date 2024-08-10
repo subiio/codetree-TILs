@@ -54,7 +54,7 @@ for i in range(K):
                 if (0 <= l[0] < n) and (0 <= l[1] < n) :
                     if grid[l[0]][l[1]] == 1:
                         tmp += 1
-            if tmp*m > cost and tmp > max_gold:
+            if tmp*m >=  cost and tmp > max_gold:
                 max_gold = tmp
 
 print(max_gold)
