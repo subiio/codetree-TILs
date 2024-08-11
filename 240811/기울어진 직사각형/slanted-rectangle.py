@@ -15,7 +15,7 @@ def find_index(n,grid):
             second = [first[0]+key[1][0], first[1] + key[1][1]]
             third = [second[0]+key[2][0], second[1] + key[2][1]]
             forth = [third[0] + key[3][0], third[1] + key[3][1]]
-            if (0 <= first[0] <= n and 0<= first[1] <= n) and (0 <= second[0] <= n and 0<= second[1] <= n) and (0 <= third[0] <= n and 0<= third[1] <= n) and (0 <= forth[0] <= n and 0<= forth[1] <= n):
+            if (0 <= first[0] < n and 0<= first[1] < n) and (0 <= second[0] < n and 0<= second[1] < n) and (0 <= third[0] < n and 0<= third[1] < n) and (0 <= forth[0] < n and 0<= forth[1] < n):
                 index_list.append([i,j])
     return index_list
     
@@ -39,6 +39,7 @@ def find_max(center, grid):
             else:
                 flag= False
     max_number = 0
+
     for j in indexing:
         
         max_number += grid[j[0]][j[1]]
