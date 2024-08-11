@@ -28,7 +28,7 @@ def find_max(center, grid):
     for i in range(len(key)):
         flag = True
         while 0 <= tmp[0] + key[i][0] < n and 0 <= tmp[1] + key[i][1] < n and flag == True :
-            if i <= 2 and 0 <= tmp[0] + key[i+1][0] < n and 0 <= tmp[1] + key[i+1][1] < n :
+            if i <= 2 and 0 <= tmp[0] + key[i][0] + key[i+1][0] < n and 0 <= tmp[1] + key[i][1] + key[i+1][1] < n :
                 tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
                 indexing.append(tmp)
             elif  i ==3 and not(tmp[0] ==  center[0] and tmp[1] == center[1]) :
@@ -38,7 +38,6 @@ def find_max(center, grid):
                 
             else:
                 flag= False
-
     max_number = 0
     for j in indexing:
         
