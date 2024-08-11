@@ -15,7 +15,7 @@ def find_index(n,grid):
             second = [first[0]+key[1][0], first[1] + key[1][1]]
             third = [second[0]+key[2][0], second[1] + key[2][1]]
             forth = [third[0] + key[3][0], third[1] + key[3][1]]
-            if (0 <= first[0] <= n and 0<= first[1] <= n) and (0 <= second[0] <= n and 0<= second[1] <= n) and (0 <= third[0] <= n and 0<= third[1] <= n) and (0 <= forth[0] <= n and 0<= forth[1] <= n):
+            if (0 <= first[0] < n and 0<= first[1] < n) and (0 <= second[0] < n and 0<= second[1] < n) and (0 <= third[0] < n and 0<= third[1] < n) and (0 <= forth[0] < n and 0<= forth[1] < n):
                 index_list.append([i,j])
     return index_list
     
@@ -24,22 +24,34 @@ def find_max(center, grid):
     key = [[-1, 1],[-1, -1], [1, -1], [1, 1]]
     tmp = center
     indexing = [tmp]
-     
+    count1 = 0
+    count2 = 0
     for i in range(len(key)):
         flag = True
         while 0 <= tmp[0] + key[i][0] < n and 0 <= tmp[1] + key[i][1] < n and flag == True :
-            if i <= 2 and 0 <= tmp[0] + key[i][0] + key[i+1][0] < n and 0 <= tmp[1] + key[i][1] + key[i+1][1] < n :
+            if i == 0 and 0 <= tmp[0] + key[i][0] + key[i+1][0] < n and 0 <= tmp[1] + key[i][1] + key[i+1][1] < n :
                 tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
                 indexing.append(tmp)
-            elif  i ==3 and not(tmp[0] ==  center[0] and tmp[1] == center[1]) :
-                
+                count1 += 1
+            elif i == 1 and 0 <= tmp[0] + key[i][0] < n and 0<= tmp[1] + key[i][1] < n:
+                count2 += 1
                 tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
                 indexing.append(tmp)
+            elif i == 2:
+                for _ in range(count1):
+                    tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
+                    indexing.append(tmp)
+                flag = False
+
+            elif  i ==3 :
+                for _ in range(count2):
+                    tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
+                    indexing.append(tmp)
+                flag = False
                 
             else:
                 flag= False
     max_number = 0
-
     for j in indexing:
         
         max_number += grid[j[0]][j[1]]
