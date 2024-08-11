@@ -1,67 +1,48 @@
+# 변수 선언 및 입력:
+
 n = int(input())
+grid = [
+    list(map(int, input().split()))
+    for _ in range(n)
+]
 
-grid = []
 
-for _ in range(n):
-    grid.append(list(map(int,input().split())))
+def in_range(x, y):
+    return 0 <= x and x < n and 0 <= y and y < n
 
 
-def find_index(n,grid):
-    key = [[-1, 1],[-1, -1],[1,-1],[1, 1]]
-    index_list = []
-    for i in range(n):
-        for j in range(n):
-            first = [i+key[0][0], j+key[0][1]]
-            second = [first[0]+key[1][0], first[1] + key[1][1]]
-            third = [second[0]+key[2][0], second[1] + key[2][1]]
-            forth = [third[0] + key[3][0], third[1] + key[3][1]]
-            if (0 <= first[0] < n and 0<= first[1] < n) and (0 <= second[0] < n and 0<= second[1] < n) and (0 <= third[0] < n and 0<= third[1] < n) and (0 <= forth[0] < n and 0<= forth[1] < n):
-                index_list.append([i,j])
-    return index_list
+def get_score(x, y, k, l):
+    dxs, dys = [-1, -1, 1, 1], [1, -1, -1, 1]
+    move_nums = [k, l, k, l]
     
+    sum_of_nums = 0
 
-def find_max(center, grid):
-    key = [[-1, 1],[-1, -1], [1, -1], [1, 1]]
-    tmp = center
-    indexing = [tmp]
-    count1 = 0
-    count2 = 0
-    for i in range(len(key)):
-        flag = True
-        while 0 <= tmp[0] + key[i][0] < n and 0 <= tmp[1] + key[i][1] < n and flag == True :
-            if i == 0 and 0 <= tmp[0] + key[i][0] + key[i+1][0] < n and 0 <= tmp[1] + key[i][1] + key[i+1][1] < n :
-                tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
-                indexing.append(tmp)
-                count1 += 1
-            elif i == 1 and 0 <= tmp[0] + key[i][0] < n and 0<= tmp[1] + key[i][1] < n:
-                count2 += 1
-                tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
-                indexing.append(tmp)
-            elif i == 2:
-                for _ in range(count1):
-                    tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
-                    indexing.append(tmp)
-                flag = False
-
-            elif  i ==3 :
-                for _ in range(count2):
-                    tmp = [tmp[0] + key[i][0], tmp[1] + key[i][1]]
-                    indexing.append(tmp)
-                flag = False
+    # 기울어진 직사각형의 경계를 쭉 따라가봅니다.
+    for dx, dy, move_num in zip(dxs, dys, move_nums):
+        for _ in range(move_num):
+            x, y = x + dx, y + dy
                 
-            else:
-                flag= False
-    max_number = 0
-    for j in indexing:
-        
-        max_number += grid[j[0]][j[1]]
-    return max_number - grid[center[0]][center[1]]
+            # 기울어진 직사각형이 경계를 벗어나는 경우라면
+            # 불가능하다는 의미로 답이 갱신되지 않도록
+            # 0을 반환합니다.
+            if not in_range(x, y):
+                return 0
+            
+            sum_of_nums += grid[x][y]
+    
+    return sum_of_nums
 
-indexing_list = find_index(n,grid)
-maxi = 0
-tmpi = 0
-for i in indexing_list:
-    tmpi = find_max(i, grid)
-    maxi = max(maxi, tmpi)
 
-print(maxi)
+ans = 0
+
+# (i, j)를 시작으로 1, 2, 3, 4 방향
+# 순서대로 길이 [k, l, k, l] 만큼 이동하면 그려지는
+# 기울어진 직사각형을 잡아보는
+# 완전탐색을 진행해봅니다.
+for i in range(n):
+    for j in range(n):
+        for k in range(1, n):
+            for l in range(1, n):
+                ans = max(ans, get_score(i, j, k, l))
+
+print(ans)
