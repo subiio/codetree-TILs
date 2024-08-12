@@ -45,12 +45,12 @@ for i in moving:
                     break
                 
         i[1] = first_moving_direction
-        for l in range(int(i[0]), M+1):
-            print(l)
+        for l in range(int(i[0]), N):
+            # print(l)
             i[1] = toggle(i[1])
             # print("i[1]:", i[1])
             for m in range(M):
-                print("m: ",m)
+                # print("m: ",m)
                 if (grid[l][m] == grid[l-1][m]):
                     grid = rotation(grid,l+1,i[1],M)
 
