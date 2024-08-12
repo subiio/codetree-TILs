@@ -50,8 +50,8 @@ for i in moving:
                 grid = rotation(grid,l+1,i[1],M)
 
                 break
-if len(grid) ==1 :
-    print(1)
+if len(grid) ==1  :
+    print(grid[0])
 else:
     for i in range(N):
         for j in range(M):
