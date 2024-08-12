@@ -40,7 +40,7 @@ for i in center:
         # print(len(j))
         tmp = len(j)
         max_length = max(max_length,tmp)
-if 0 <= max_length < 2:
+if max_length == 0 and max_length == 3 :
     print(-1)
 else:
     print(max_length)
