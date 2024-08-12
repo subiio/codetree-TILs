@@ -25,6 +25,7 @@ def find_max(center,grid,n,m):
             searchable_list.append(tmp)
     # print("searchable_list:", searchable_list)
     return searchable_list
+
 center = []
 for i in range(n):
     for j in range(m):
