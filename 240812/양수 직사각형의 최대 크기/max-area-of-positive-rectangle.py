@@ -21,9 +21,9 @@ def find_max(center,grid,n,m):
                     else:
                         tmp.append(-1)
             if -1 in tmp:
-                tmp = [-1]        
+                tmp = []        
             searchable_list.append(tmp)
-    # print("searchable_list:", searchable_list)
+    print("searchable_list:", searchable_list)
     return searchable_list
 
 center = []
