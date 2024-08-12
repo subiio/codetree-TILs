@@ -40,7 +40,9 @@ for i in center:
         # print(len(j))
         tmp = len(j)
         max_length = max(max_length,tmp)
-if max_length == 0 or max_length == 3 :
+if max_length == 0:
     print(-1)
+elif max_length == 3:
+    print(2)
 else:
     print(max_length)
