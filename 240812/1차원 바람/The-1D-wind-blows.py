@@ -29,28 +29,31 @@ def rotation(grid,r,d,M):
     return grid
 
 for i in moving:
-    first_moving_direction = i[1]
-    grid = rotation(grid,int(i[0]),i[1],M)
-    for j in range(int(i[0])-1, 0, -1):
-        i[1] = toggle(i[1])
-        for k in range(M):
-            if (grid[j][k] == grid[j-1][k]):
-                grid = rotation(grid,j,i[1],M)
+    if N == 1 and M == 1:
+        break
+    else:
+        first_moving_direction = i[1]
+        grid = rotation(grid,int(i[0]),i[1],M)
+        for j in range(int(i[0])-1, 0, -1):
+            i[1] = toggle(i[1])
+            for k in range(M):
+                if (grid[j][k] == grid[j-1][k]):
+                    grid = rotation(grid,j,i[1],M)
 
-                break
-            
-    i[1] = first_moving_direction
-    for l in range(int(i[0]), M+1):
-        # print(l)
-        i[1] = toggle(i[1])
-        # print("i[1]:", i[1])
-        for m in range(M):
-            # print("m: ",m)
-            if (grid[l][m] == grid[l-1][m]):
-                grid = rotation(grid,l+1,i[1],M)
+                    break
+                
+        i[1] = first_moving_direction
+        for l in range(int(i[0]), M+1):
+            # print(l)
+            i[1] = toggle(i[1])
+            # print("i[1]:", i[1])
+            for m in range(M):
+                # print("m: ",m)
+                if (grid[l][m] == grid[l-1][m]):
+                    grid = rotation(grid,l+1,i[1],M)
 
-                break
-if len(grid) ==1  :
+                    break
+if N == 1 and M == 1  :
     print(grid[0][0])
 else:
     for i in range(N):
