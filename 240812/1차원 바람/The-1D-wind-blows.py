@@ -31,6 +31,8 @@ def rotation(grid,r,d,M):
 for i in moving:
     if N == 1 and M == 1:
         break
+    elif N == 1:
+        grid = rotation(grid,i[0],i[1],M)
     else:
         first_moving_direction = i[1]
         grid = rotation(grid,int(i[0]),i[1],M)
