@@ -51,7 +51,7 @@ for i in moving:
 
                 break
 if len(grid) ==1  :
-    print(grid[0])
+    print(grid[0][0])
 else:
     for i in range(N):
         for j in range(M):
