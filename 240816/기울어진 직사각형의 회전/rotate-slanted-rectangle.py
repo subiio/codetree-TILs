@@ -72,6 +72,8 @@ else:
         grid[r2+array[0]*j][c2 + array[1]*j] = grid_list[length]
         length += 1
     for k in range(1,m3+1):
+        if length > len(grid_list)-1:
+            length = -1
         array = [1, -1]
         grid[r3+array[0]*k][c3 + array[1]*k] = grid_list[length]
         length += 1
