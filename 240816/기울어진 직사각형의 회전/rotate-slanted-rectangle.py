@@ -62,6 +62,7 @@ if dir == 0:
         print()
 else:
     length = 1
+    stop_flag = 0
 
     for i in range(0,m1+1):
         array = [-1, 1]
@@ -74,13 +75,19 @@ else:
     for k in range(1,m3+1):
         if length > len(grid_list)-1:
             length = -1
+            stop_flag = 1
         array = [1, -1]
         grid[r3+array[0]*k][c3 + array[1]*k] = grid_list[length]
         length += 1
+        if stop_flag == 1:
+            break
     for l in range(1,m4 + 1):
+        if stop_flag == 1:
+            break
         array = [1,1]
         if length > len(grid_list)-1:
             length = -1
+            stop_flag = 1
         grid[r4+ array[0]*l][c4 + array[1]*l] =grid_list[length]
         length += 1
     for i in range(n):
