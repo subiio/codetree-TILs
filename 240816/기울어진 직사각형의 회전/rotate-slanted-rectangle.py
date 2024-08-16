@@ -34,7 +34,7 @@ for l in range(1,m4):
     center = [r4+array[0]*l, c4+array[1]*l]
 
 # print("r,c:",r,c,"r2,c2:",r2,c2,"r3,c3: ",r3,c3,"r4,c4: ",r4,c4)
-print(grid_list)
+# print(grid_list)
 
 
 if dir == 0:
