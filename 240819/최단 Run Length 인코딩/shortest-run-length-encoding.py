@@ -27,8 +27,8 @@ def RunLengthEncoding(A):
             elif (A[j] == A[j-1]) and (j == len(A)-1):
                 count += 1
                 Run_list.append(count)
-                # if len(A) == count :
-                #     return 3
+                if len(A) == count :
+                    return 3
 
             elif A[j] != A[j-1] and (j != len(A)-1):
                 Run_list.append(count)
