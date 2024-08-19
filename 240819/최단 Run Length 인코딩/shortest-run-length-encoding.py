@@ -1,6 +1,7 @@
-A = input()
-A = list(A)
-
+# A = input()
+# A = list(A)
+# A = 'a'
+# A = list(A)
 # print(A)
 
 def shift(A):
@@ -16,7 +17,7 @@ def RunLengthEncoding(A):
     Run_list = []
     count = 1
     if len(A) == 1:
-        return 1
+        return 2
     for j in range(len(A)):
         if j == 0 :
             Run_list.append(A[j])
@@ -26,7 +27,7 @@ def RunLengthEncoding(A):
             elif (A[j] == A[j-1]) and (j == len(A)-1):
                 count += 1
                 Run_list.append(count)
-                if len(A) == count-1 :
+                if len(A) == count :
                     return 3
 
             elif A[j] != A[j-1] and (j != len(A)-1):
@@ -38,7 +39,7 @@ def RunLengthEncoding(A):
                 Run_list.append(A[j])
                 count = 1
                 Run_list.append(count)
-    # print("Run_list: ", Run_list)
+    print("Run_list: ", Run_list)
 
     return len(Run_list)
 
