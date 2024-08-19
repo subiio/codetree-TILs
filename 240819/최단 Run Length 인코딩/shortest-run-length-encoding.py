@@ -15,6 +15,8 @@ def shift(A):
 def RunLengthEncoding(A):
     Run_list = []
     count = 1
+    if len(A) == 1:
+        return 1
     for j in range(len(A)):
         if j == 0 :
             Run_list.append(A[j])
