@@ -1,5 +1,5 @@
-# A = input()
-# A = list(A)
+A = input()
+A = list(A)
 # A = 'a'
 # A = list(A)
 # print(A)
