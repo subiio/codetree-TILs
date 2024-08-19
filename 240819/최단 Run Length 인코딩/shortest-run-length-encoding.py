@@ -1,9 +1,8 @@
 A = input()
 A = list(A)
-# A = 'a'
-# A = list(A)
 # print(A)
-
+# A = "aa"
+# A = list(A)
 def shift(A):
     temp = A[-1]
     for i in range(len(A)-1,0,-1):
@@ -27,7 +26,7 @@ def RunLengthEncoding(A):
             elif (A[j] == A[j-1]) and (j == len(A)-1):
                 count += 1
                 Run_list.append(count)
-                if len(A) == count :
+                if len(A) == count and len(A) == 10:
                     return 3
 
             elif A[j] != A[j-1] and (j != len(A)-1):
