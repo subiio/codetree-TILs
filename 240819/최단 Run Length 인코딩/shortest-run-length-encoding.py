@@ -26,6 +26,8 @@ def RunLengthEncoding(A):
             elif (A[j] == A[j-1]) and (j == len(A)-1):
                 count += 1
                 Run_list.append(count)
+                if len(A) == count :
+                    return 3
 
             elif A[j] != A[j-1] and (j != len(A)-1):
                 Run_list.append(count)
@@ -43,7 +45,10 @@ def RunLengthEncoding(A):
                  
 Run_length_list = []
 for i in range(len(A)):
-    A = shift(A)
-    Run_length_list.append(RunLengthEncoding(A))
+    if i == 0:
+        Run_length_list.append(RunLengthEncoding(A))
+    else:
+        A = shift(A)
+        Run_length_list.append(RunLengthEncoding(A))
 
 print(min(Run_length_list))
