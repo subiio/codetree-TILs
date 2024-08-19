@@ -43,10 +43,7 @@ def RunLengthEncoding(A):
                  
 Run_length_list = []
 for i in range(len(A)):
-    if i == 0:
-        Run_length_list.append(RunLengthEncoding(A))
-    else:
-        A = shift(A)
-        Run_length_list.append(RunLengthEncoding(A))
+    A = shift(A)
+    Run_length_list.append(RunLengthEncoding(A))
 
 print(min(Run_length_list))
