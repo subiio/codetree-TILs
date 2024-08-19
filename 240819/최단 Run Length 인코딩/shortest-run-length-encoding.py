@@ -17,7 +17,7 @@ def RunLengthEncoding(A):
     Run_list = []
     count = 1
     if len(A) == 1:
-        return 1
+        return 2
     for j in range(len(A)):
         if j == 0 :
             Run_list.append(A[j])
@@ -39,7 +39,7 @@ def RunLengthEncoding(A):
                 Run_list.append(A[j])
                 count = 1
                 Run_list.append(count)
-    print("Run_list: ", Run_list)
+    # print("Run_list: ", Run_list)
 
     return len(Run_list)
 
