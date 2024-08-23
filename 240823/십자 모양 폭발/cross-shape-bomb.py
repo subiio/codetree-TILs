@@ -117,7 +117,7 @@ for q in range(n-len(range_list),n):
     
     grid[q][c-1] = range_list[count]
     count += 1
-for v in range(len(range_list)):
+for v in range(len(aing_list1)):
     grid[v][c-1] = 0
 
 # print(grid)
