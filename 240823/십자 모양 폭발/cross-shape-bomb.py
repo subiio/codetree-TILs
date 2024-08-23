@@ -67,7 +67,7 @@ for j in range(1,left_final+1):
 if low >= a-1:
     low_final = a-1
 else:
-    low_final = right
+    low_final = low
 for k in range(1,low_final+1):
     grid_list.append([r-1+k, c-1])
 if high >= a-1:
