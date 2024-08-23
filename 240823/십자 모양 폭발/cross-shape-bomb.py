@@ -1,16 +1,16 @@
 n = int(input())
 grid = []
-# for _ in range(n):
-#     grid.append(list(map(int,input().split())))
+for _ in range(n):
+    grid.append(list(map(int,input().split())))
 
-# r,c = map(int,input().split())
+r,c = map(int,input().split())
 
 # n = grid[r-1][c-1]
-grid = [[1, 2, 4, 3],
-[3, 2, 2, 3],
-[3, 1, 6, 2],
-[4, 5, 4, 4]]
-r,c = 3,3
+# grid = [[1, 2, 4, 3],
+# [3, 2, 2, 3],
+# [3, 1, 6, 2],
+# [4, 5, 4, 4]]
+# r,c = 3,3
 def range_check(grid,r,c):
     right,left,low,high = 0,0,0,0
     
@@ -75,6 +75,8 @@ else:
     high_final = high
 for l in range(1,high_final+1):
     grid_list.append([r-1-l, c-1])
+
+# print(right_final,left_final,low_final,right_final)
 # print(grid_list)
 for p in grid_list:
     a = p[0]
