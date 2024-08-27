@@ -12,6 +12,9 @@ while not IsStop:
     count = 0
     iter_count = 1
     remove_index = []
+    if M == 1:
+        grid = []
+        break
     for i in range(len(grid)-1):
         # print("i: ", i)
         # print("iter_count: ", iter_count)
