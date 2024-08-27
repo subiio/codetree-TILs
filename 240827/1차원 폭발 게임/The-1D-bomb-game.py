@@ -62,6 +62,7 @@ while not IsStop:
     if len(grid) == 0:
         print(0)
         break
+    print("count:", count )
     if count == 0:
         isStop = True
     else:
