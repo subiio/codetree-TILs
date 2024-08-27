@@ -19,23 +19,27 @@ while not IsStop:
         # print("i: ", i)
         # print("iter_count: ", iter_count)
         if grid[i] == grid[i+1]:
+            
             iter_count += 1
             if iter_count == 2:
                 remove_index.append(i)
             else:
                 pass
         else:
+            # print("iter_cout: ", iter_count, "M: ", M)
             if iter_count >= M:
                 remove_index.append(i)
                 count += 1
-            else:
+            elif 1< iter_count < M :
                 try:
                     remove_index.pop()
                 except:
                     pass
+            else: pass
                 
         
             iter_count = 1
+    # print("iter_count: ", iter_count)
     if iter_count != 1:
         if iter_count >= M:
             remove_index.append(len(grid)-1)
