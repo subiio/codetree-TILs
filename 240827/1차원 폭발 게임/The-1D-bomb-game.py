@@ -4,8 +4,6 @@ grid = []
 for _ in range(N):
     grid.append(int(input()))
 
-
-
 IsStop = False
 
 while not IsStop:
@@ -59,20 +57,28 @@ while not IsStop:
             if i == 0:
                 for j in range(0, remove_index[i]):
                     grid_2.append(grid[j])
+
+                try:
+                    for k in range(remove_index[i+1]+1,remove_index[i+2]):
+                        grid_2.append(grid[k])
+                except:
+                    for k in range(remove_index[i+1]+1,len(grid)):
+                        grid_2.append(grid[k])
             else:
                 try:
-                    for j in range(remove_index[i-1]+1,remove_index[i]):
-                        grid_2.append(grid[j])
+                    for k in range(remove_index[i+1]+1,remove_index[i+2]):
+                        grid_2.append(grid[k])
                 except:
-                    pass
+                    for k in range(remove_index[i+1]+1,len(grid)):
+                        grid_2.append(grid[k])
 
             
-            try:
-                for k in range(remove_index[i+1]+1,remove_index[i+2]):
-                    grid_2.append(grid[k])
-            except:
-                for k in range(remove_index[i+1]+1,len(grid)):
-                    grid_2.append(grid[k])
+            # try:
+            #     for k in range(remove_index[i+1]+1,remove_index[i+2]):
+            #         grid_2.append(grid[k])
+            # except:
+            #     for k in range(remove_index[i+1]+1,len(grid)):
+            #         grid_2.append(grid[k])
         grid = grid_2
     
     else:
