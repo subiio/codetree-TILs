@@ -1,7 +1,9 @@
 N,M = map(int,input().split())
+
 grid = []
 for _ in range(N):
     grid.append(int(input()))
+
 
 
 IsStop = False
@@ -11,6 +13,7 @@ while not IsStop:
     iter_count = 1
     remove_index = []
     for i in range(len(grid)-1):
+        # print("i: ", i)
         # print("iter_count: ", iter_count)
         if grid[i] == grid[i+1]:
             iter_count += 1
@@ -32,7 +35,7 @@ while not IsStop:
             iter_count = 1
     if iter_count != 1:
         if iter_count >= M:
-            remove_index.append(grid[len(grid)-1])
+            remove_index.append(len(grid)-1)
             count += 1
         else:
             try:
@@ -45,8 +48,17 @@ while not IsStop:
         length_remove_index = len(remove_index)
         grid_2 = []
         for i in range(0,length_remove_index,2):
-            for j in range(0, remove_index[i]):
-                grid_2.append(grid[j])
+            # print("tlqkf: ", i)
+            if i == 0:
+                for j in range(0, remove_index[i]):
+                    grid_2.append(grid[j])
+            else:
+                try:
+                    for j in range(remove_index[i-1]+1,remove_index[i]):
+                        grid_2.append(grid[j])
+                except:
+                    pass
+
             
             try:
                 for k in range(remove_index[i+1]+1,remove_index[i+2]):
@@ -59,11 +71,13 @@ while not IsStop:
     else:
         grid = grid
     # print("grid: ", grid)
-    if len(grid) == 0:
-        print(0)
-        break
-    print("count:", count )
+
     if count == 0:
-        isStop = True
+        IsStop = True
     else:
-        isStop = False
+        IsStop = False
+if len(grid )== 0:
+    print(0)
+else:
+    for i in range(len(grid)):
+        print(grid[i])
