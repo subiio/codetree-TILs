@@ -76,8 +76,11 @@ while not IsStop:
         IsStop = True
     else:
         IsStop = False
-if len(grid )== 0:
-    print(0)
-else:
+
+print(len(grid))
+
+try:
     for i in range(len(grid)):
         print(grid[i])
+except:
+    pass
