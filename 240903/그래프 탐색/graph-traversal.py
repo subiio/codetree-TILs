@@ -14,7 +14,6 @@ def dfs(vertex,empty_list = []):
     for curr_v in graph[vertex]:
         if not visited[curr_v]:
             empty_list.append(curr_v)
-            
             visited[curr_v] = True
             dfs(curr_v)
 
@@ -28,8 +27,9 @@ for start, end in zip(start_point, end_point):
 
 
 root_vertex = 1
+visited[root_vertex] = True
 
 if N == 1 or M == 0:
     print(0)
 else:
-    print(len(dfs(root_vertex))- 1)
+    print(len(dfs(root_vertex)))
