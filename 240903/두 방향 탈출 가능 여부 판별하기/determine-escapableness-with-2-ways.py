@@ -35,12 +35,16 @@ def dfs(x,y):
             order += 1
             visited[new_x][new_y] = 1
             dfs(new_x,new_y)
-    if grid[n-1][m-1] <= 1:
-        return 0
-    else:
-        return 1
+    
+    # if grid[n-1][m-1] <= 1:
+    #     return 0
+    # else:
+    #     return 1
 
 grid[0][0] = order
-order += 1
 visited[0][0] = 1
-print(dfs(0,0))
+dfs(0,0)
+if grid[n-1][m-1] <= 1 :
+    print(0)
+else:
+    print(1)
