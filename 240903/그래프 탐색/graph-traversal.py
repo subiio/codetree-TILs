@@ -10,15 +10,15 @@ for _ in range(M):
 graph = [[] for _ in range(N+1)]
 visited = [False for _ in range(N+1)]
 
-def dfs(vertex):
-    count = 1
+def dfs(vertex,empty_list = []):
     for curr_v in graph[vertex]:
         if not visited[curr_v]:
-            count += 1
+            empty_list.append(curr_v)
+            
             visited[curr_v] = True
             dfs(curr_v)
 
-    return count
+    return empty_list
 
 
 
@@ -29,4 +29,4 @@ for start, end in zip(start_point, end_point):
 
 root_vertex = 1
 
-print(dfs(root_vertex))
+print(len(dfs(root_vertex)) -1 )
