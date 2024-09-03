@@ -43,7 +43,7 @@ def dfs(x,y):
 
 grid[0][0] = order
 visited[0][0] = 1
-dfs(0,0)
+print(dfs(0,0))
 # if grid[n-1][m-1] <= 1 :
 #     print(0)
 # else:
