@@ -1,5 +1,5 @@
 n,m = map(int,input().split())
-n,m = 5,5
+
 
 grid =  []
 for _ in range(n):
