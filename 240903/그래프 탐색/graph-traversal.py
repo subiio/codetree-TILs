@@ -29,7 +29,7 @@ for start, end in zip(start_point, end_point):
 
 root_vertex = 1
 
-if N == 1:
+if N == 1 or M == 0:
     print(0)
 else:
     print(len(dfs(root_vertex))- 1)
