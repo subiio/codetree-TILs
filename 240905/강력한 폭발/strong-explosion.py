@@ -16,7 +16,7 @@ max_count = 0
 bomb_list = [[0 for _ in range(n)]
 for _ in range(n)]
 bombed = [
-    [0 for _ in range(n)]
+    [ False for _ in range(n)]
     for _ in range(n)
 ]
 explode_pose = []
@@ -30,7 +30,7 @@ def find_max_explode(curr_num):
     if curr_num == len(explode_pose) :
         for i in range(n):
             for j in range(n):
-                bombed[i][j] = 0
+                bombed[i][j] = False
         
         for i in range(n):
             for j in range(n):
@@ -64,6 +64,5 @@ for i in range(n):
     for j in range(n):
         if grid[i][j] == 1:
             explode_pose.append([i,j])
-prev_grid = 0
 find_max_explode(0)
 print(max_count)
