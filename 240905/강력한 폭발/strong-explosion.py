@@ -9,7 +9,7 @@ def count_number_1(grid):
     count = 0
     for i in range(n):
         for j in range(n):
-            if grid[i][j] == 1:
+            if grid[i][j] >= 1:
                 count += 1
     return count
 max_count = 0
