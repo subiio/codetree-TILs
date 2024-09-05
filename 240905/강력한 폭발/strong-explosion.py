@@ -35,8 +35,8 @@ def find_max_explode(curr_num):
         for i in range(n):
             for j in range(n):
                 if bomb_list[i][j]:
-                    for k in range(5):
-                        dx, dy = explode_list[bomb_list[i][j]][k]
+                    for l in range(5):
+                        dx, dy = explode_list[bomb_list[i][j]][l]
                         nx, ny = i + dx, j + dy
                         try:
                             bombed[nx][ny] = 1
