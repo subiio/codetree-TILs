@@ -1,68 +1,47 @@
-n = int(input())
-grid = []
+from itertools import product
 
-for _ in range(n):
-    grid.append(list(map(int,input().split())))
-
-
-def count_number_1(grid):
-    count = 0
-    for i in range(n):
-        for j in range(n):
-            if grid[i][j] >= 1:
-                count += 1
-    return count
-max_count = 0
-bomb_list = [[0 for _ in range(n)]
-for _ in range(n)]
-bombed = [
-    [ False for _ in range(n)]
-    for _ in range(n)
-]
-explode_pose = []
-explode_list = [[[-2,0],[-1,0],[0,0],[1,0],[2,0]],
-    [[-1,0],[1,0],[0,0],[0,1],[0,-1]],
-    [[-1,-1],[-1,1],[0,0],[1,1],[1,-1]]]
-def find_max_explode(curr_num):
-    global max_count, grid, explode_list
-    # print("curr_num: ", curr_num)
-    # print("explode_pose_list: ", explode_pose_list)
-    if curr_num == len(explode_pose) :
-        for i in range(n):
-            for j in range(n):
-                bombed[i][j] = False
-        
-        for i in range(n):
-            for j in range(n):
-                if bomb_list[i][j]:
-                    for l in range(5):
-                        dx, dy = explode_list[bomb_list[i][j]][l]
-                        nx, ny = i + dx, j + dy
-                        try:
-                            bombed[nx][ny] = 1
-                        except:
-                            pass       
-        tmp = count_number_1(bombed)
-
-        if tmp > max_count:
-            max_count = tmp
-
-        return
-    explode_list = [[[-2,0],[-1,0],[0,0],[1,0],[2,0]],
-        [[-1,0],[1,0],[0,0],[0,1],[0,-1]],
-        [[-1,-1],[-1,1],[0,0],[1,1],[1,-1]]]
-    for k in range(len(explode_list)):
-        point_explode = explode_pose[curr_num]
-        bomb_list[point_explode[0]][point_explode[1]] = k 
-        find_max_explode(curr_num + 1)
-        bomb_list[point_explode[0]][point_explode[1]] = 0
-   
+def apply_bomb(grid, x, y, bomb_type):
+    directions = [
+        [(-2,0), (-1,0), (0,0), (1,0), (2,0)], # T형 폭탄
+        [(-1,0), (1,0), (0,0), (0,1), (0,-1)], # +형 폭탄
+        [(-1,-1), (-1,1), (0,0), (1,1), (1,-1)] # X형 폭탄
+    ]
     
-    return
+    affected = set()
+    for dx, dy in directions[bomb_type]:
+        nx, ny = x + dx, y + dy
+        if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]):
+            affected.add((nx, ny))
+    return affected
 
-for i in range(n):
-    for j in range(n):
-        if grid[i][j] == 1:
-            explode_pose.append([i,j])
-find_max_explode(0)
-print(max_count)
+def count_destroyed_area(grid, bombs):
+    affected_area = set()
+    for (x, y, bomb_type) in bombs:
+        affected_area.update(apply_bomb(grid, x, y, bomb_type))
+    return len(affected_area)
+
+def get_max_destroyed_area(grid, bomb_positions):
+    max_destroyed = 0
+    bomb_types = len(explode_list) # Number of bomb types
+    
+    # 모든 폭탄 배치 조합을 시도
+    for combination in product(range(bomb_types), repeat=len(bomb_positions)):
+        bombs = [(bomb_positions[i][0], bomb_positions[i][1], combination[i]) for i in range(len(bomb_positions))]
+        max_destroyed = max(max_destroyed, count_destroyed_area(grid, bombs))
+    
+    return max_destroyed
+
+# 입력 처리
+n = int(input().strip())
+grid = [list(map(int, input().strip().split())) for _ in range(n)]
+
+# 폭탄 위치 수집
+bomb_positions = [(i, j) for i in range(n) for j in range(n) if grid[i][j] == 1]
+
+# 폭탄 유형 정의
+explode_list = [[(-2,0), (-1,0), (0,0), (1,0), (2,0)], # T형 폭탄
+                [(-1,0), (1,0), (0,0), (0,1), (0,-1)], # +형 폭탄
+                [(-1,-1), (-1,1), (0,0), (1,1), (1,-1)]] # X형 폭탄
+
+# 최대 초토화 영역 수 계산
+print(get_max_destroyed_area(grid, bomb_positions))
