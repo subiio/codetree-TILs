@@ -30,7 +30,7 @@ def find_max_explode(curr_num):
     if curr_num == len(explode_pose) :
         for i in range(n):
             for j in range(n):
-                bombed[i][j] = False
+                bombed[i][j] = 0
         
         for i in range(n):
             for j in range(n):
