@@ -18,23 +18,13 @@ dxs = dx[cur_ind]
 dys = dy[cur_ind]
 x = N//2
 y = N//2
-sum_number = grid[x][y]
+sum_number = grid[y][x]
+
 for j in (moving):
     # print("x,y: ", x,y)
     if j == "R":
-        try:
-            
-            # print("cur_ind: ", cur_ind)
             cur_ind += 1
-            # if in_range(x+dx[cur_ind], y+dy[cur_ind]):
-            #     dxs = dx[cur_ind]
-            #     dys = dy[cur_ind]
-            #     x += dxs
-            #     y += dys
-            #     sum_number += grid[y][x]
-
-        except:
-            pass
+           
 
     elif j == "F":
         try:
@@ -51,16 +41,10 @@ for j in (moving):
             pass
 
     elif j == "L":
-        try:
-            # print("cur_ind: ", cur_ind)
-            cur_ind -= 1
-            # if in_range(x+dx[cur_ind], y+dy[cur_ind]):
-            #     dxs = dx[cur_ind]
-            #     dys = dy[cur_ind]
-            #     x += dxs
-            #     y += dys
-        except:
-            pass
+      
+        cur_ind -= 1
+        
+      
     else:
         pass
 
