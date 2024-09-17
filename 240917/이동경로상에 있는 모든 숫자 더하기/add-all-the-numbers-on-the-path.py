@@ -20,10 +20,12 @@ x = N//2
 y = N//2
 sum_number = grid[y][x]
 
+
+# print("dxdxdx", (-5%4))
 for j in (moving):
     # print("x,y: ", x,y)
     if j == "R":
-            cur_ind += 1
+            cur_ind = (cur_ind + 1) % 4
            
 
     elif j == "F":
@@ -41,8 +43,8 @@ for j in (moving):
             pass
 
     elif j == "L":
-      
-        cur_ind -= 1
+    
+        cur_ind = (cur_ind - 1) % 4
         
       
     else:
