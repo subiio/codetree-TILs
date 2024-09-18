@@ -10,7 +10,7 @@ for _ in range(N):
 sorted_list = []
 
 while N != len(sorted_list):
-    min_ind = 0
+    min_ind = -1
     for i in range(len(stu_list)):
         if stu_list[i][0] < stu_list[min_ind][0]:
             min_ind = i
