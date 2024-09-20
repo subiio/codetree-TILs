@@ -3,7 +3,9 @@ grid = []
 for _ in range(n):
     grid.append(list(map(int,input().split())))
 
-   
+# n,m = 4,5
+# grid = [[6,-2,4,-3,1],[3,6,7,-4,1],[6,1,8,15,-5],[3,-5,1,16,3]]
+
 # 1 부분집합을 다 구한다.
 
 def generate_all_rectangles(grid,n,m):
@@ -14,18 +16,19 @@ def generate_all_rectangles(grid,n,m):
             for start_col in range(m):
                 for end_col in range(start_col, m):
                     subgrid =[]
+                    ifelse = 1
                     for r in range(start_row, end_row +1):
                         row = grid[r][start_col:end_col + 1]
                         subgrid.append(row)
-                    ifelse = 1
-                    for k in subgrid:
-                        for l in k:
-                            if l <= 0:
-                                ifelse = 0
-                            else:
-                                ifelse = 1
-                    if ifelse == 1:
+
+                        if any(element <= 0 for element in row):
+                            ifelse = False
+                            break
+                    
+                    if ifelse:
                         rectangles.append(subgrid)
+                        
+
                                 
 
     return rectangles
