@@ -13,8 +13,11 @@ def calculate_run_length(a):
             prev_string = i
         else:
             pass
-    if count == 0 :
+    if (count == 0 and len(a) != 10):
         length = 2
+        return length
+    elif (count == 0 and len(a) == 10):
+        length = 3
         return length
     else:
         return length
