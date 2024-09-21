@@ -1,6 +1,5 @@
 a = list(input())
 # print(a)
-
 # TODO
 def calculate_run_length(a):
     # 초기 length
