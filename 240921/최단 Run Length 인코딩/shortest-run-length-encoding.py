@@ -14,7 +14,7 @@ def calculate_run_length(a):
         else:
             pass
     if count == 0 :
-        length = 3
+        length = 2
         return length
     else:
         return length
