@@ -9,8 +9,8 @@ grid = []
 for i in range(n):
     grid.append(list(map(int,input().split())))
 
-n = 3
-grid = [[1,2,1],[4,5,6],[1,8,1]]
+# n = 3
+# grid = [[1,2,1],[4,5,6],[1,8,1]]
 
 def in_range(x,y):
     return (0<= x < n and 0 <= y < n)
@@ -54,39 +54,38 @@ def gravity(grid,i,j):
         # print("gravited:", grid)
         return grid
 
-exploded_grid = explode(grid,1,0)
-gravitied_grid = gravity(exploded_grid,1,0)
-#### 여기가 fucking 문제야
-# def calculate(grid):
-#     count = 0
-#     for u in range(n):
-#         for y in range(n):
-#             if grid[u][y] >= 1:
-#                 for b in range(len(dx)):
-#                     dxs = u
-#                     dys = y
-#                     dxs += dx[b]
-#                     dys += dy[b]
-#                     if in_range(dxs,dys):
-#                         if grid[u][y] == grid[dxs][dys]:
-#                             count += 1
-#                         else:
-#                             pass
-#                     else:
-#                         pass
-#     # print(count/2)
-#     return int(count//2)
+
+### 여기가 fucking 문제야
+def calculate(grid):
+    count = 0
+    for u in range(n):
+        for y in range(n):
+            if grid[u][y] >= 1:
+                for b in range(len(dx)):
+                    dxs = u
+                    dys = y
+                    dxs += dx[b]
+                    dys += dy[b]
+                    if in_range(dxs,dys):
+                        if grid[u][y] == grid[dxs][dys]:
+                            count += 1
+                        else:
+                            pass
+                    else:
+                        pass
+    # print(count/2)
+    return int(count/2)
 
 
 
 
 
-# num_list = []
-# for i in range(n):
-#     for j in range(n):
-#         exploded_grid = grid
-#         exploded_grid = explode(grid,i,j)
-#         gravitied_grid = gravity(exploded_grid,i,j)
-#         num_list.append(calculate(gravitied_grid))
+num_list = []
+for i in range(n):
+    for j in range(n):
+        exploded_grid = grid
+        exploded_grid = explode(grid,i,j)
+        gravitied_grid = gravity(exploded_grid,i,j)
+        num_list.append(calculate(gravitied_grid))
 
-# print(max(num_list))
+print(max(num_list))
