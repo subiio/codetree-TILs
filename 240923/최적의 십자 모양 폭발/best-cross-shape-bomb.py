@@ -39,7 +39,7 @@ def explode(grid_1,i,j):
     
     return grid_1
 
-def gravity(grid_2,i,j):
+def gravity(grid_2,i,j,explode_range):
     global n
     N = i
     if i == 0:
@@ -48,7 +48,7 @@ def gravity(grid_2,i,j):
         for k in range(n):
             N = i
             # print(k,N)
-            if grid_2[N][k] == 0:
+            if grid_2[N][k] == 0 and k != j:
                 while N !=0:
                     # print("N: ", N-1)
                     # print("grid[N][j]", grid[N][k])
@@ -56,6 +56,15 @@ def gravity(grid_2,i,j):
                     grid_2[N][k] = grid_2[N-1][k]
                     N -= 1
                 grid_2[N][k] = 0
+            elif grid_2[N][k] == 0 and k == j:
+                grid_exploded = []
+                for e in range(0,N-explode_range + 1):
+                    grid_exploded.append(grid_2[e][k])
+                for z in range(N+(explode_range - 1), N-1, -1):
+                    grid_2[z][k] = grid_exploded.pop()
+                
+
+
         # print("gravited:", grid)
         return grid_2
 
@@ -96,7 +105,7 @@ for i in range(n):
             # print("original_grid: ", grid_copy)
             exploded_grid = explode(grid_copy,i,j)
             # print("exploded_grid : ", exploded_grid)
-            gravitied_grid = gravity(exploded_grid,i,j)
+            gravitied_grid = gravity(exploded_grid,i,j,grid_copy[i][j])
             num_list.append(calculate(gravitied_grid))
 
 print(max(num_list))
