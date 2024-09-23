@@ -81,11 +81,16 @@ def calculate(grid):
 
 
 num_list = []
-for i in range(n):
-    for j in range(n):
-        exploded_grid = grid
-        exploded_grid = explode(grid,i,j)
-        gravitied_grid = gravity(exploded_grid,i,j)
-        num_list.append(calculate(gravitied_grid))
 
-print(max(num_list))
+if n== 1:
+    print(0)
+else:
+    
+    for i in range(n):
+        for j in range(n):
+            exploded_grid = grid
+            exploded_grid = explode(grid,i,j)
+            gravitied_grid = gravity(exploded_grid,i,j)
+            num_list.append(calculate(gravitied_grid))
+
+    print(max(num_list))
