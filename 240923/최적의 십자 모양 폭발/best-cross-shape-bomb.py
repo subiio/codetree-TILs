@@ -89,12 +89,9 @@ num_list = []
 
 
 
-if n== 1:
-    print(0)
-else:
 
-    for i in range(n):
-        for j in range(n):
+for i in range(n):
+    for j in range(n):
             grid_copy = copy.deepcopy(grid)
             # print("original_grid: ", grid_copy)
             exploded_grid = explode(grid_copy,i,j)
@@ -102,4 +99,4 @@ else:
             gravitied_grid = gravity(exploded_grid,i,j)
             num_list.append(calculate(gravitied_grid))
 
-    print(max(num_list))
+print(max(num_list))
