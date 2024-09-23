@@ -58,10 +58,18 @@ def gravity(grid_2,i,j,explode_range):
                 grid_2[N][k] = 0
             elif grid_2[N][k] == 0 and k == j:
                 grid_exploded = []
-                for e in range(0,N-explode_range + 1):
-                    grid_exploded.append(grid_2[e][k])
-                for z in range(N+(explode_range - 1), N-1, -1):
-                    grid_2[z][k] = grid_exploded.pop()
+                try:
+                    # print("N-explode_range + 1: ")
+                    for e in range(N, N - (explode_range - 1) -1 , -1):
+                        grid_exploded.append(grid_2[e][k])
+                    # print("grid_exploded: ", grid_exploded)
+                    start_ind = 0
+                    for z in range(N+(explode_range - 1), N-1, -1):
+                        
+                        grid_2[z][k] = grid_exploded[start_ind]
+                        start_ind += 1
+                except:
+                    pass
                 
 
 
