@@ -79,7 +79,7 @@ def calculate(grid_3):
                     else:
                         pass
     # print(count/2)
-    return int(count/2)
+    return int(count//2)
 
 
 
