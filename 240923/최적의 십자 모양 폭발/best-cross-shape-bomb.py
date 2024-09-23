@@ -22,12 +22,12 @@ def in_range(x,y):
 
 def explode(grid_1,i,j):
     # 폭발의 크기
-    N = grid_1[i][j]
+    F = grid_1[i][j]
     explode_grid = [[i,j]]
-    if N == 1:
+    if F == 1:
         pass
     else:
-        for k in range(1,N):
+        for k in range(1,F):
             for l in range(len(dx)):
                 explode_grid.append([i + k*dx[l],j + k*dy[l]])
     # print(explode_grid)
