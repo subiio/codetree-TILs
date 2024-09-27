@@ -22,7 +22,6 @@ def ladder_tagi(number_list,ladder):
     return number_list2
 
 min_len = 1000000000000000000000000
-laddergrid = []
 def backtracking(cur_num,end_grid,init_grid): 
     global min_len, ladder_list, laddergrid
 
