@@ -11,15 +11,9 @@ for _ in range(m):
     ladder_list.append(list(map(int,input().split())))
 
 def ladder_tagi(number_list,ladder):
-    number_list2 = copy.deepcopy(number_list)
-    ladder = sorted(ladder,key = lambda x: x[1])
-    for i in range(len(ladder)):
-        first_ind = ladder[i][0] -1
-        second_ind = ladder[i][0]
-        tmp = number_list2[second_ind]
-        number_list2[second_ind] = number_list2[first_ind]
-        number_list2[first_ind] = tmp
-    return number_list2
+    for a, b in sorted(ladder, key=lambda x: x[1]):
+        number_list[a-1], number_list[a] = number_list[a], number_list[a-1]
+    return number_list
 
 min_len = 1000000000000000000000000
 def backtracking(cur_num,end_grid,init_grid): 
