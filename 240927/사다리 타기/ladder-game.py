@@ -1,42 +1,47 @@
 import copy
+n,m = map(int,input().split())
 
-# 입력 받기
-n, m = map(int, input().split())
-ladder_list = [list(map(int, input().split())) for _ in range(m)]
+ladder_list = []
 
-# 초기 사다리 상태 설정
-init_number_list = list(range(1, n+1))
+init_number_list = []
+for i in range(1,n+1):
+    init_number_list.append(i)
 
-# 사다리 타기 동작 함수
-def ladder_tagi(number_list, ladder):
-    # 깊은 복사를 줄이기 위해 바로 결과를 변환
-    for a, b in sorted(ladder, key=lambda x: x[1]):
-        number_list[a-1], number_list[a] = number_list[a], number_list[a-1]
-    return number_list
+for _ in range(m):
+    ladder_list.append(list(map(int,input().split())))
 
-# 최소 가로줄 수를 찾기 위한 백트래킹
-def backtracking(idx, current_ladder, final_ladder):
-    global min_len
+def ladder_tagi(number_list,ladder):
+    number_list2 = copy.deepcopy(number_list)
+    ladder = sorted(ladder,key = lambda x: x[1])
+    for i in range(len(ladder)):
+        first_ind = ladder[i][0] -1
+        second_ind = ladder[i][0]
+        tmp = number_list2[second_ind]
+        number_list2[second_ind] = number_list2[first_ind]
+        number_list2[first_ind] = tmp
+    return number_list2
 
-    # 종료 조건: 결과가 같아진 경우
-    if ladder_tagi(copy.deepcopy(init_number_list), current_ladder) == final_ladder:
-        min_len = min(min_len, len(current_ladder))
+min_len = 1000000000000000000000000
+laddergrid = []
+def backtracking(cur_num,end_grid,init_grid): 
+    global min_len, ladder_list, laddergrid
+
+    if  ladder_tagi(copy.deepcopy(init_number_list), init_grid)== end_grid:
+        min_len = min(min_len, len(init_grid))
         return
+    
 
-    # 백트래킹 수행
-    for i in range(idx, m):
-        current_ladder.append(ladder_list[i])
-        backtracking(i + 1, current_ladder, final_ladder)
-        current_ladder.pop()
+    for i in range(cur_num, m):
+        init_grid.append(ladder_list[i])
+        backtracking(cur_num+1, end_grid, init_grid)
+        init_grid.pop()
+        
+        
 
-# 초기 상태와 최종 목표 상태 계산
-end_grid = ladder_tagi(copy.deepcopy(init_number_list), ladder_list)
+    
 
-# 최소 가로줄의 수를 저장하는 변수
-min_len = float('inf')
 
-# 백트래킹 수행
-backtracking(0, [], end_grid)
+end_grid = ladder_tagi(init_number_list, ladder_list)
+backtracking(0, end_grid,[])
 
-# 결과 출력
 print(min_len)
