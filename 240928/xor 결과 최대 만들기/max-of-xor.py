@@ -1,7 +1,7 @@
 n,m = map(int,input().split())
-
+# n,m = 2,1
 num_list= list(map(int,input().split()))
-
+# num_list = [1,2]
 def xor(num1,num2):
     cnt = 1
     sum_number = 0
@@ -27,7 +27,7 @@ def backtracking(curnum,idx):
     if curnum == m:
         # print(num_list2)
         if m == 1:
-            temp = 0
+            temp = num_list2[0]
         elif m == 2:
             temp = xor(num_list2[0],num_list2[1])
         else:
