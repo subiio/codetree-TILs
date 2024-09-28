@@ -1,6 +1,8 @@
 n,m = map(int,input().split())
 # n,m = 2,1
+# n,m = 1,1
 num_list= list(map(int,input().split()))
+# num_list = [0]
 # num_list = [1,2]
 def xor(num1,num2):
     cnt = 1
@@ -40,9 +42,9 @@ def backtracking(curnum,idx):
         return
         
     
-    for i in range(idx+1,n+1):
-        num_list2.append(i)
-        backtracking(curnum + 1, i)
+    for i in range(idx,n):
+        num_list2.append(num_list[i])
+        backtracking(curnum + 1, i+1)
         num_list2.pop()    
 
 backtracking(0,0) 
