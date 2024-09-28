@@ -31,17 +31,9 @@ num_list2 = []
 def backtracking(curnum,idx):
     global max_num
     if curnum == m:
-        # print(num_list2)
-        if m == 1:
-            temp = num_list2[0]
-        elif m == 2:
-            temp = xor(num_list2[0],num_list2[1])
-        else:
-            first_num = num_list2[0]
-            second_num = num_list2[1]
-            temp = xor(first_num,second_num)
-            for j in range(3,m):
-                temp = xor(temp,num_list2[j])
+        temp = num_list2[0]
+        for j in range(1,m):
+            temp = xor(temp, num_list2[j])
         max_num = max(temp,max_num)
         return
         
