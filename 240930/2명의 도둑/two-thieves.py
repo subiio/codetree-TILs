@@ -3,10 +3,8 @@ grid = []
 for _ in range(N):
     grid.append(list(map(int,input().split())))
 
-# N,M,C = 4, 3, 12
-# grid = [[8,8,6,5],[5,2,7,4],[8,5,1,7],[1,1,1,1]]
-
-
+# N,M,C = 5,2, 16
+# grid = [[8,6,2,6,8],[3,8,4,3,5],[8,1,9,1,2],[6,7,3,9,4],[9,7,1,2,6]]
 
 bubun_list =[]
 
@@ -16,8 +14,6 @@ for i in range(N):
         for m in range(j,j+M):
             bubun_list_2.append([i,m])
         bubun_list.append(bubun_list_2)
-
-# print(bubun_list)
 
 def check_possible(grid1,grid2):
     for i in grid1:
@@ -38,13 +34,12 @@ def find_max_num(grid3,grid4,C,global_grid):
     max_number2 = 0
     max_number = 0
     for i in range(len(grid3)):
-        # print(grid[0][0])
         sum_number +=  global_grid[grid3[i][0]][grid3[i][1]] 
         grid3_grid.append(global_grid[grid3[i][0]][grid3[i][1]])
         sum_number_2 += global_grid[grid4[i][0]][grid4[i][1]]
         grid4_grid.append(global_grid[grid4[i][0]][grid4[i][1]])
-    # print("grid3_grid4:", grid3_grid, grid4_grid)
-    if sum_number<= C:
+
+    if sum_number <= C:
         for n in grid3_grid:
             max_number1 += n*n 
     else:
@@ -53,14 +48,11 @@ def find_max_num(grid3,grid4,C,global_grid):
                 grid1 = []
                 sum_number = 0
                 for l in range(i):
-                    # print(i,k,l)
                     grid1.append(grid3_grid[(k+l)%len(grid3_grid)])
                     sum_number += (grid3_grid[(k+l)%len(grid3_grid)]) **2
                 
                 if sum(grid1) <= C:
-                    # print("grid3:", grid)
                     max_number1 = max(sum_number,max_number1)
-                    # print("max_number1: ", max_number1)
                 else:
                     pass 
 
@@ -73,19 +65,15 @@ def find_max_num(grid3,grid4,C,global_grid):
                 grid2 = []
                 sum_number = 0
                 for l in range(i):
-                    # print(k+l)
                     grid2.append(grid4_grid[(k+l) % len(grid4_grid)])
                     sum_number += (grid4_grid[(k+l) % len(grid4_grid)]) **2
-                # print("grid2: ", grid2)
+
                 if sum(grid2) <= C:
-                    # print("grid4: ", grid2)
                     max_number2 = max(sum_number,max_number2)
-                    # print("max_number2: ", max_number2)
                 else:
                     pass 
     temp = max_number1 + max_number2
     max_number = max(temp, max_number)
-    # print(max_number)
     
     return max_number
 
@@ -101,7 +89,7 @@ def backtracking(curr_num,idx):
     
     for i in range(idx,len(bubun_list)):
         doduk_grid.append(bubun_list[i])
-        backtracking(curr_num + 1, idx + 1)
+        backtracking(curr_num + 1, i + 1)  # 여기 idx + 1을 i + 1로 변경
         doduk_grid.pop()
 
 backtracking(0,0)
