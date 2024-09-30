@@ -4,6 +4,7 @@ for _ in range(N):
     grid.append(list(map(int,input().split())))
 
 # N,M,C = 4, 3, 12
+# grid = [[8,8,6,5],[5,2,7,4],[8,5,1,7],[1,1,1,1]]
 
 
 
@@ -55,7 +56,7 @@ def find_max_num(grid3,grid4,C,global_grid):
                     # print(i,k,l)
                     grid1.append(grid3_grid[(k+l)%len(grid3_grid)])
                     sum_number += (grid3_grid[(k+l)%len(grid3_grid)]) **2
-                # print(grid)
+                
                 if sum(grid1) <= C:
                     # print("grid3:", grid)
                     max_number1 = max(sum_number,max_number1)
@@ -68,12 +69,14 @@ def find_max_num(grid3,grid4,C,global_grid):
             max_number2 += n*n 
     else:
         for i in range(1,len(grid4_grid)):
-             for k in range(len(grid4_grid)-(i-1)):
+             for k in range(len(grid4_grid)):
                 grid2 = []
                 sum_number = 0
                 for l in range(i):
+                    # print(k+l)
                     grid2.append(grid4_grid[(k+l) % len(grid4_grid)])
                     sum_number += (grid4_grid[(k+l) % len(grid4_grid)]) **2
+                # print("grid2: ", grid2)
                 if sum(grid2) <= C:
                     # print("grid4: ", grid2)
                     max_number2 = max(sum_number,max_number2)
