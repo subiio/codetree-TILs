@@ -3,6 +3,9 @@ grid = []
 for _ in range(N):
     grid.append(list(map(int,input().split())))
 
+# N,M,C = 4, 3, 12
+
+
 
 bubun_list =[]
 
@@ -46,14 +49,14 @@ def find_max_num(grid3,grid4,C,global_grid):
     else:
         for i in range(1,len(grid3_grid)):
              for k in range(len(grid3_grid)):
-                grid = []
+                grid1 = []
                 sum_number = 0
                 for l in range(i):
                     # print(i,k,l)
-                    grid.append(grid3_grid[(k+l)%len(grid3_grid)])
+                    grid1.append(grid3_grid[(k+l)%len(grid3_grid)])
                     sum_number += (grid3_grid[(k+l)%len(grid3_grid)]) **2
                 # print(grid)
-                if sum(grid) <= C:
+                if sum(grid1) <= C:
                     # print("grid3:", grid)
                     max_number1 = max(sum_number,max_number1)
                     # print("max_number1: ", max_number1)
