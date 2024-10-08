@@ -30,7 +30,7 @@ def dfs(vertex):
             dfs(curr_v)
 
 dfs(1)
-if N == 1:
+if N == 1 or M == 0:
     print(0)
 else:    
     print(count - 1)
