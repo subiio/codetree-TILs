@@ -27,18 +27,20 @@ def can_go(i,j):
     return True
 
 count = 0
-def dfs(x,y):
+def dfs(x, y):
     global count
-    dxs,dys = [1,0,-1,0],[0,1,0,-1]
+    stack = [(x, y)]
+    visited[x][y] = True
+    while stack:
+        cur_x, cur_y = stack.pop()
+        dxs, dys = [1, 0, -1, 0], [0, 1, 0, -1]
+        for dx, dy in zip(dxs, dys):
+            new_x, new_y = cur_x + dx, cur_y + dy
+            if can_go(new_x, new_y):
+                visited[new_x][new_y] = True
+                count += 1
+                stack.append((new_x, new_y))
 
-    for dx, dy in zip(dxs,dys):
-        new_x, new_y = x + dx , y + dy
-        if can_go(new_x,new_y):
-            count += 1
-            # print("new_x: , new_y: ",new_x,new_y)
-            visited[new_x][new_y] = True
-
-            dfs(new_x,new_y)
         
 
 
