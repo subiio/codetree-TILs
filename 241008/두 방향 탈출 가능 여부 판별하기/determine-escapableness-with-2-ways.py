@@ -27,13 +27,12 @@ def dfs(x,y):
     global grid, count
 
     dxs , dys = [1,0], [0, 1]
-
     for dx, dy in zip(dxs, dys):
         new_x , new_y = x + dx , y + dy
         
         if cango(new_x,new_y):
             # print("x,y: ", new_x, new_y)
-            if new_x == m-1 and new_y == n-1:
+            if new_x == n-1 and new_y == m-1:
                 count += 1
             visited[new_x][new_y] = True
             dfs(new_x,new_y)
