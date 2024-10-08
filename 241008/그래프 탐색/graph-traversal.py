@@ -25,16 +25,16 @@ def dfs(vertex):
     global count
     for curr_v in range(1, VERTICES_NUM + 1):
         if adj_list[vertex][curr_v] and not visited[curr_v]:
-            count += 1
+            if not curr_v == 1:
+                count += 1
+     
             visited[curr_v] = True
             dfs(curr_v)
 
 dfs(1)
-if N == 1 or M == 0:
-    print(0)
-else:    
-    print(count - 1)
-print()
+
+print(count)
+
 # def dfs(vertex):
 #     for curr_v in graph[vertex]:
 #         if not visited[curr_v]:
