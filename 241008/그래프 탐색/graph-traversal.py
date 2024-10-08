@@ -30,7 +30,10 @@ def dfs(vertex):
             dfs(curr_v)
 
 dfs(1)
-print(count - 1)
+if N == 1:
+    print(0)
+else:    
+    print(count - 1)
 print()
 # def dfs(vertex):
 #     for curr_v in graph[vertex]:
