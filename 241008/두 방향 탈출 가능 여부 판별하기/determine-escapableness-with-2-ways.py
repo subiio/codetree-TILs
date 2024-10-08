@@ -10,7 +10,7 @@ visited = [[False for _ in range(m)] for _ in range(n)]
 
 def in_range(i,j):
     global n,m 
-    return (0 <= i < m) and (0 <= j < n)
+    return (0 <= i < n) and (0 <= j < m)
 
 
 def cango(i,j):
