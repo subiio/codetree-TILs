@@ -24,7 +24,7 @@ def cango(i,j):
 count = 0
 def dfs(x,y):
 
-    global grid
+    global grid, count
 
     dxs , dys = [1,0], [0, 1]
 
