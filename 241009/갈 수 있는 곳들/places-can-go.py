@@ -46,7 +46,7 @@ for i in start_point:
     push(i[0]-1, i[1]-1)
     bfs()
 
-print(visited)
+# print(visited)
 
 count = 0
 for i in range(n):
