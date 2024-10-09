@@ -73,9 +73,9 @@ for i in range(k):
     pyeongga_list = copy.deepcopy(grid)
 
     for j in range(n):
-        for k in range(n):
-            if grid[j][k] >= number and (j != prev_x or k != prev_y):
-                pyeongga_list[j][k] = 0
+        for r in range(n):
+            if grid[j][r] >= number and (j != prev_x or r != prev_y):
+                pyeongga_list[j][r] = 0
     # print(pyeongga_list)
     push(prev_x,prev_y)
     bfs()
