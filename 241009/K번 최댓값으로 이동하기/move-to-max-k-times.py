@@ -84,5 +84,7 @@ for i in range(k):
     max_x, max_y = 101, 101
     max_number = 0
     visited = [[False for _ in range(n)] for _ in range(n)]
-
-print(prev_x+1, prev_y+1)
+if n == 1:
+    print(1,1)
+else:
+    print(prev_x+1, prev_y+1)
