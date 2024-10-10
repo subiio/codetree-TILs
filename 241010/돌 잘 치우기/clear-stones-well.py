@@ -28,7 +28,6 @@ def push(x,y):
     q.append((x,y))
 
 def bfs():
-    global count
     dxs, dys = [1,0,-1,0], [0,1,0,-1]
 
     while q:
@@ -37,7 +36,6 @@ def bfs():
             new_x, new_y = curr_x + dx, curr_y + dy
             if can_go(new_x,new_y):
                 push(new_x,new_y)
-                count += 1
 def find_ind_1(grid):
     ind_list = []
     for i in range(n):
@@ -79,18 +77,27 @@ for i in sublist:
 # print(gwansim_list)
 
 max_number = 0
+count = 0
 for j in gwansim_list:
-    count = 1
+    # count = 0
     pyeongga_list = copy.deepcopy(grid)
+    visited = [[False for _ in range(n)] for _ in range(n)]
     for k in range(len(j)):
         ind_x, ind_y  = j[k][0], j[k][1]
         pyeongga_list[ind_x][ind_y] = 0
         # count = 0
-        for i in start_point:
-            x,y = i[0]-1, i[1]-1 
-            push(x,y)
-            bfs()
+    for i in start_point:
+        x,y = i[0]-1, i[1]-1 
+        push(x,y)
+        bfs()
+    for t in range(n):
+        for r in range(n):
+            if visited[t][r] == True:
+                count += 1
+
+
     max_number = max(max_number,count)
+    count = 0
             
 
 print(max_number)
