@@ -38,6 +38,10 @@ def bfs():
             if can_go(new_x,new_y):
                 push(new_x,new_y,step[curr_x][curr_y]+1)
 
-push(0,0,0)
-bfs()
-print(step[n-1][m-1])
+
+if not can_go(0,0):
+    print(-1)
+else:
+    push(0,0,0)
+    bfs()
+    print(step[n-1][m-1])
