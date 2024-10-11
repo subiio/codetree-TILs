@@ -80,7 +80,7 @@ for j in result:
         ind_x, ind_y = j[k][0], j[k][1]
         pyeong_list[ind_x][ind_y] = 0
     for i in start_point:
-        x,y = i[0], i[1]
+        x,y = i[0]-1, i[1] -1
         push(x,y)
         bfs()
 
