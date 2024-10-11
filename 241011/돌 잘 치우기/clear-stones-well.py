@@ -22,7 +22,7 @@ def in_range(x,y):
 def can_go(x,y):
     if not in_range(x,y):
         return False
-    if visited[x][y] == True or grid[x][y] == 1:
+    if visited[x][y] == True or pyeong_list[x][y] == 1:
         return False
     return True
 
@@ -68,12 +68,14 @@ list_list = find_ind(grid)
 result = []
 sublist = find_sublist(list_list,0,[],result)
 real_result = []
+# print(result)
 for i in result:
     if len(i) == m:
         real_result.append(i)
 max_number = 0
+count = 0
 for j in real_result:
-    count = 1
+
     pyeong_list = copy.deepcopy(grid)
     visited = [[False for _ in range(n)] for _ in range(n)]
     for k in range(len(j)):
@@ -89,5 +91,6 @@ for j in real_result:
             if visited[t][r] == True:
                 count += 1
     max_number = max(max_number,count)
+    count = 0
 
 print(max_number)
