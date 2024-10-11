@@ -39,7 +39,7 @@ def bfs():
                 push(new_x,new_y,step[curr_x][curr_y]+1)
 
 
-if not can_go(0,0):
+if not (can_go(-1,0) or can_go(1,0) or can_go(0,1) or can_go(0,-1)):
     print(-1)
 else:
     push(0,0,0)
