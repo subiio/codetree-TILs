@@ -48,9 +48,9 @@ while iter_rate:
     bfs()
     dxs,dys = [1,0,-1,0], [0,1,0,-1]
 
-    for q in range(N):
+    for u in range(N):
         for w in range(M):
-            if grid[q][w] == 0:
+            if grid[u][w] == 0:
                 prev_count += 1 
     for i in range(N):
         for j in range(M):
@@ -62,9 +62,9 @@ while iter_rate:
                         if grid[ind_x][ind_y]:
                             grid[ind_x][ind_y] = 0 
 
-    for q in range(N):
+    for u in range(N):
         for w in range(M):
-            if grid[q][w] == 0:
+            if grid[u][w] == 0:
                 count += 1 
     time += 1
     if count == N*M:
