@@ -71,4 +71,4 @@ while iter_rate:
         iter_rate = False
         break
 
-print(time, prev_count)
+print(time, N*M - prev_count)
