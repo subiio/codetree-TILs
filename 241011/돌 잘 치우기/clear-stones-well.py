@@ -51,8 +51,7 @@ def find_ind(grid):
     return result
 
 def find_sublist(list,idx,current,result):
-    if idx == m:
-        result.append(current[:])
+    result.append(current[:])
 
     
     for i in range(idx, len(list)):
@@ -68,12 +67,13 @@ list_list = find_ind(grid)
 
 result = []
 sublist = find_sublist(list_list,0,[],result)
-
-
-
+real_result = []
+for i in result:
+    if len(i) == m:
+        real_result.append(i)
 max_number = 0
-for j in result:
-    count = 0
+for j in real_result:
+    count = 1
     pyeong_list = copy.deepcopy(grid)
     visited = [[False for _ in range(n)] for _ in range(n)]
     for k in range(len(j)):
