@@ -58,7 +58,7 @@ def find_sublist(list,idx,current,result):
     
     for i in range(idx, len(list)):
         current.append(list[i])
-        find_sublist(list,idx+1,current,result)
+        find_sublist(list,i+1,current,result)
         current.pop()
     
     
